@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workfolio — Pradhiksha Suresh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #191919;
+      --surface:   #252525;
+      --surface2:  #2e2e2e;
+      --border:    #383838;
+      --text:      #e8e8e8;
+      --muted:     #999;
+      --orange:    #e07b39;
+      --purple:    #9e6bc4;
+      --green:     #4caf78;
+      --blue:      #4a9edd;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── BANNER ── */
+    .banner {
+      width: 100%;
+      height: 220px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1280px-Tsunami_by_hokusai_19th_century.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    /* ── PAGE ICON ── */
+    .page-icon {
+      font-size: 44px;
+      line-height: 1;
+      position: relative;
+      top: -24px;
+      left: 64px;
+      display: inline-block;
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-title-row {
+      padding: 0 64px 24px;
+    }
+    .page-title-row h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .page-title-row hr {
+      margin-top: 16px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 48px;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 64px 80px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {}
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 6px;
+      display: block;
+      background: var(--surface2);
+    }
+
+    .profile-name {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .sidebar-section {
+      margin-top: 36px;
+    }
+
+    .sidebar-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Contact buttons */
+    .contact-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .contact-btn:hover { background: var(--surface2); }
+    .contact-btn svg { flex-shrink: 0; opacity: 0.7; }
+
+    /* Skill list */
+    .skill-list { list-style: none; }
+    .skill-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .skill-list li::before {
+      content: '🌐';
+      font-size: 0.85rem;
+    }
+
+    /* Cert cards */
+    .cert-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .cert-card svg { flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
+
+    /* Education cards */
+    .edu-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .edu-card svg { flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
+
+    /* Hobbies */
+    .hobby-list { list-style: none; }
+    .hobby-list li {
+      padding: 5px 0;
+      font-size: 0.9rem;
+      color: var(--text);
+      cursor: default;
+    }
+
+    /* ── MAIN ── */
+    .main {}
+
+    /* About */
+    .section { margin-bottom: 48px; }
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .about-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.15s;
+      word-break: break-all;
+    }
+    .about-link:hover { background: var(--surface2); color: var(--text); }
+    .about-link svg { flex-shrink: 0; }
+
+    /* Tools */
+    .tools-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      width: fit-content;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .tool-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .tool-icon { font-size: 1.1rem; }
+    .tool-icon-img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; display:inline-block; }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .badge-expert { background: #1e4d33; color: var(--green); }
+    .badge-intermediate { background: #1a3a5c; color: var(--blue); }
+
+    /* Work experience */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .exp-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .exp-icon { font-size: 1.2rem; margin-top: 1px; }
+    .exp-title { font-size: 1rem; font-weight: 700; color: var(--orange); }
+    .exp-company { font-size: 0.9rem; color: var(--purple); font-weight: 600; }
+    .exp-date { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+    .exp-bullets { list-style: none; padding-left: 4px; }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.55;
+    }
+    .exp-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 4px;
+      color: var(--muted);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--purple); }
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .project-desc {
+      font-size: 0.85rem;
+      color: #bbb;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* Scroll nav dots */
+    .scroll-nav {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+    .scroll-dot {
+      width: 4px;
+      height: 18px;
+      background: var(--border);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, height 0.2s;
+    }
+    .scroll-dot.active { background: var(--muted); height: 24px; }
+
+    /* Portfolio header pill */
+    .portfolio-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      width: fit-content;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .gallery-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.15s;
+      display: block;
+    }
+    .gallery-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+    .gallery-thumb {
+      width: 100%;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-thumb-inner { font-size: 2.5rem; opacity: 0.8; }
+    .gallery-meta {
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .gallery-icon { font-size: 0.85rem; margin-top: 1px; flex-shrink: 0; }
+    .gallery-title { font-size: 0.82rem; color: var(--text); line-height: 1.4; }
+
+    /* ── MODAL ── */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    #modal-overlay.open { display: flex; }
+
+    #modal {
+      background: #222;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 32px 32px 28px;
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    #modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    #modal-close:hover { background: var(--surface2); color: var(--text); }
+
+    #modal-icon { font-size: 2.2rem; margin-bottom: 10px; }
+
+    #modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .modal-fields { border-top: 1px solid var(--border); }
+
+    .modal-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .modal-row-desc { align-items: flex-start; }
+
+    .modal-label {
+      color: var(--muted);
+      min-width: 130px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .modal-value { color: var(--text); flex: 1; }
+    .modal-desc-text { line-height: 1.65; color: #bbb; }
+    .modal-link { color: var(--blue); text-decoration: none; word-break: break-all; }
+    .modal-link:hover { text-decoration: underline; }
+    .modal-tools-text { color: #bbb; }
+
+    #modal-preview-wrap {
+      margin-top: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    #modal-preview {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* cursor on gallery cards */
+    .gallery-card { cursor: pointer; }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; padding: 24px; gap: 32px; }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .page-icon { left: 24px; }
+      .page-title-row { padding: 0 24px 20px; }
+      #modal { padding: 24px 20px 20px; }
+      .modal-label { min-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Scroll nav dots (like Notion) -->
+<nav class="scroll-nav" aria-hidden="true">
+  <div class="scroll-dot active" onclick="scrollTo('#about')"></div>
+  <div class="scroll-dot" onclick="scrollTo('#tools')"></div>
+  <div class="scroll-dot" onclick="scrollTo('#experience')"></div>
+  <div class="scroll-dot" onclick="scrollTo('#projects')"></div>
+</nav>
+
+<!-- Banner -->
+<div class="banner"></div>
+
+<!-- Page icon -->
+<div style="padding: 0 64px;">
+  <span class="page-icon">💼</span>
+</div>
+
+<!-- Page title -->
+<div class="page-title-row">
+  <h1>Workfolio</h1>
+  <hr />
+</div>
+
+<!-- Main layout -->
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <!-- Photo -->
+    <img
+      class="profile-photo"
+      src="photo.jpg"
+      alt="Pradhiksha Suresh"
+      onerror="this.style.background='#2e2e2e';this.alt='';this.style.height='320px'"
+    />
+    <p class="profile-name">Hi there! I'm Pradhiksha Suresh</p>
+
+    <!-- Get in touch -->
+    <div class="sidebar-section">
+      <h2>Get in touch</h2>
+      <div class="contact-btns">
+        <a class="contact-btn" href="mailto:pradhikshasuresh05@gmail.com">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          Email
+        </a>
+        <a class="contact-btn" href="tel:+1">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Phone
+        </a>
+      </div>
+    </div>
+
+    <!-- Skill Set -->
+    <div class="sidebar-section">
+      <h2>Skill Set</h2>
+      <ul class="skill-list">
+        <li>SQL &amp; Data Querying</li>
+        <li>Data Analysis &amp; Interpretation</li>
+        <li>Data Visualization</li>
+        <li>Communication</li>
+        <li>Stakeholder Management</li>
+        <li>Data Modeling</li>
+        <li>Data Cleaning &amp; Wrangling</li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div class="sidebar-section">
+      <h2>Certifications</h2>
+      <div class="cert-card">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,8 12,12 14,14"/></svg>
+        AWS Cloud Practitioner By — Amazon Web Services
+      </div>
+      <div class="cert-card">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,8 12,12 14,14"/></svg>
+        Certified Scrum Master By — Scrum Alliance
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="sidebar-section">
+      <h2>Education</h2>
+      <div class="edu-card">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,8 12,12 14,14"/></svg>
+        <div>
+          <div style="font-weight:600">MS Management Science</div>
+          <div style="color:var(--muted);font-size:0.82rem">Minor in Business Analytics &amp; Data Mining · UT Dallas · May 2025 · GPA 3.86</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,8 12,12 14,14"/></svg>
+        <div>
+          <div style="font-weight:600">BSE Computer Science</div>
+          <div style="color:var(--muted);font-size:0.82rem">Thiagarajar College of Engineering · July 2023 · GPA 3.68</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hobbies -->
+    <div class="sidebar-section">
+      <h2>Hobbies</h2>
+      <ul class="hobby-list">
+        <li>Reading Books</li>
+        <li>Baking</li>
+        <li>Journaling</li>
+        <li>Strength Training</li>
+        <li>Painting</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main">
+
+    <!-- About -->
+    <section class="section" id="about">
+      <h2 class="section-title">About Me</h2>
+      <p style="color:#ccc; line-height:1.7;">
+        I'm a data and business analyst who enjoys using data to solve real problems and support better decision-making. I've worked with SQL, Python, Tableau, and Power BI to clean data, build dashboards, and uncover insights. If I join your team, I'd focus on understanding your business, ensuring data accuracy, and delivering clear, actionable insights that help drive results.
+      </p>
+      <div class="about-grid">
+        <a class="about-link" href="https://github.com/Pradhiksha-Suresh" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          github.com/Pradhiksha-Suresh
+        </a>
+        <a class="about-link" href="https://linkedin.com/in/pradhikshasuresh" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          Pradhiksha Suresh
+        </a>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="section" id="tools">
+      <h2 class="section-title">Tools</h2>
+      <div class="tools-header">
+        <span>🧰</span> Tools
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- SQL / MySQL -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="12" cy="6" rx="9" ry="3" fill="#4479A1"/>
+              <path d="M3 6v4c0 1.657 4.03 3 9 3s9-1.343 9-3V6" fill="#4479A1"/>
+              <path d="M3 10v4c0 1.657 4.03 3 9 3s9-1.343 9-3v-4" fill="#2d6a9f"/>
+              <path d="M3 14v4c0 1.657 4.03 3 9 3s9-1.343 9-3v-4" fill="#1a5a8e"/>
+            </svg>
+            SQL
+          </div>
+          <span class="badge badge-expert">Expert</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- Excel -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="3" fill="#217346"/>
+              <path d="M7.5 7.5L10.5 12L7.5 16.5H9.75L12 12.75L14.25 16.5H16.5L13.5 12L16.5 7.5H14.25L12 11.25L9.75 7.5H7.5Z" fill="white"/>
+            </svg>
+            Excel
+          </div>
+          <span class="badge badge-expert">Expert</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- Tableau -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="11" y="2" width="2" height="6" rx="1" fill="#E97627"/>
+              <rect x="11" y="16" width="2" height="6" rx="1" fill="#E97627"/>
+              <rect x="2" y="11" width="6" height="2" rx="1" fill="#5B9BD5"/>
+              <rect x="16" y="11" width="6" height="2" rx="1" fill="#5B9BD5"/>
+              <rect x="5.5" y="5.5" width="2" height="5" rx="1" transform="rotate(-45 5.5 5.5)" fill="#59A84B"/>
+              <rect x="14.5" y="14" width="2" height="5" rx="1" transform="rotate(-45 14.5 14)" fill="#59A84B"/>
+              <rect x="14" y="5.5" width="2" height="5" rx="1" transform="rotate(45 14 5.5)" fill="#E15759"/>
+              <rect x="5" y="14" width="2" height="5" rx="1" transform="rotate(45 5 14)" fill="#E15759"/>
+              <circle cx="12" cy="12" r="2" fill="#E97627"/>
+            </svg>
+            Tableau
+          </div>
+          <span class="badge badge-expert">Expert</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- Power BI -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="12" width="4" height="10" rx="1" fill="#F2C811"/>
+              <rect x="8" y="8" width="4" height="14" rx="1" fill="#F2C811" opacity="0.85"/>
+              <rect x="14" y="4" width="4" height="18" rx="1" fill="#F2C811" opacity="0.7"/>
+              <rect x="20" y="2" width="2" height="20" rx="1" fill="#F2C811" opacity="0.5"/>
+            </svg>
+            Power BI
+          </div>
+          <span class="badge badge-expert">Expert</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- Python -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.914 2C7.715 2 8 3.787 8 3.787V5.87h4v.63H5.787S2 6.047 2 10.298c0 4.25 2.367 4.1 2.367 4.1H5.87v-1.972S5.787 10.06 8.19 10.06h3.947s2.244.036 2.244-2.169V4.534S14.76 2 11.914 2zM9.786 3.535a.786.786 0 110 1.573.786.786 0 010-1.573z" fill="#3776AB"/>
+              <path d="M12.086 22c4.199 0 3.914-1.787 3.914-1.787v-2.083h-4v-.63h6.213S22 17.953 22 13.702c0-4.25-2.367-4.1-2.367-4.1H18.13v1.972s.083 2.366-2.32 2.366H11.863s-2.244-.036-2.244 2.169v3.357S9.24 22 12.086 22zm2.128-1.535a.786.786 0 110-1.573.786.786 0 010 1.573z" fill="#FFD43B"/>
+            </svg>
+            Python
+          </div>
+          <span class="badge badge-expert">Expert</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- MS Project -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="3" fill="#31752F"/>
+              <text x="5" y="17" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="white">P</text>
+              <rect x="11" y="7" width="7" height="2" rx="1" fill="white" opacity="0.8"/>
+              <rect x="11" y="11" width="5" height="2" rx="1" fill="white" opacity="0.6"/>
+              <rect x="11" y="15" width="6" height="2" rx="1" fill="white" opacity="0.6"/>
+            </svg>
+            MS Project
+          </div>
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- JIRA -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 12l4 4 6-6 6 6 4-4L12 2z" fill="#0052CC"/>
+              <path d="M12 8l-4 4 4 4 4-4-4-4z" fill="#2684FF"/>
+              <path d="M8 12l4 4 4-4" fill="none" stroke="#0052CC" stroke-width="0"/>
+              <path d="M12 2L8 6l4 4 4-4-4-4z" fill="#4C9AFF"/>
+            </svg>
+            JIRA
+          </div>
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">
+            <!-- AWS -->
+            <svg class="tool-icon-img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 13.5c-2.5.8-4 2-4 2.5 0 1.1 4 2 9 2s9-.9 9-2c0-.5-1.5-1.7-4-2.5" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M6 10l2 5h1.5l1.5-4 1.5 4H14l2-5" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19 12.5c.3-.5.5-1 .5-1.5a3 3 0 00-3-3c-.2 0-.4 0-.6.05A4 4 0 008 9a2.5 2.5 0 00.5 5" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            AWS
+          </div>
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-icon">🐎</span>
+          <div>
+            <div class="exp-title">Data Scientist</div>
+            <div><span class="exp-company">Community Dreams Foundation</span> <span class="exp-date">(July 2025 – April 2026)</span></div>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Analyzed workforce training program data using Python and SQL to track participant enrollment, course completion, and job placement outcomes, reducing manual grant reporting effort by 30%.</li>
+          <li>Built a classification model using Scikit-learn to segment participants by skill level and career readiness, helping the Green Collar Jobs team improve job placement match rates by 20%.</li>
+          <li>Developed Tableau dashboards tracking clean energy contractor engagement metrics on the Green Connect platform, giving leadership real-time visibility into matchmaking performance and trends.</li>
+          <li>Leveraged AI tools to automate routine data cleaning and exploratory analysis workflows, cutting data preparation time by 25% and enabling faster delivery of program impact insights.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-icon">🐎</span>
+          <div>
+            <div class="exp-title">Data &amp; AI Analyst</div>
+            <div><span class="exp-company">Incedo Inc</span> <span class="exp-date">(May 2024 – January 2025)</span></div>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built a Retrieval-Augmented Generation (RAG) chatbot using Python, LLMs, and vector databases to automate HR document search, reducing average document retrieval time by 40%.</li>
+          <li>Constructed a Neo4j knowledge graph using Cypher queries to map relationships across internal HR files, improving contextual search accuracy by 30%.</li>
+          <li>Designed a Streamlit-based demo application to present the RAG solution to management, contributing to a 25% reduction in manual HR reporting effort through automated Tableau dashboards.</li>
+          <li>Automated data validation workflows using Python and SQL to catch inconsistencies across HR datasets, reducing data errors by 20% and improving confidence in downstream analytics.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-icon">🐎</span>
+          <div>
+            <div class="exp-title">Data Analyst</div>
+            <div><span class="exp-company">Paragon Diagnostics</span> <span class="exp-date">(June 2020 – June 2023)</span></div>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Led the design and deployment of a Power BI sales and inventory tracking dashboard, giving management real-time visibility into stock levels and fulfillment rates, reducing stockout incidents by 22%.</li>
+          <li>Developed an automated SQL reporting pipeline to replace manual Excel processes for monthly order and delivery data, cutting report generation time by 35% and improving data accuracy by 15%.</li>
+          <li>Conducted year-on-year sales trend analysis using Python and Excel across key product lines and territories, informing quarterly sales strategy and improving regional revenue targets by 12%.</li>
+          <li>Mentored 2 junior analysts on SQL querying, data cleaning, and dashboard development, standardizing team reporting workflows and reducing analyst onboarding time by 30%.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work Examples -->
+    <section class="section" id="projects">
+      <h2 class="section-title">Work Examples</h2>
+      <div class="portfolio-header">
+        <span>💼</span> Portfolio
+      </div>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ── PROJECT MODAL ── -->
+<div id="modal-overlay" onclick="closeModal(event)">
+  <div id="modal" role="dialog">
+    <button id="modal-close" onclick="closeModal(null)" aria-label="Close">✕</button>
+    <div id="modal-icon"></div>
+    <h2 id="modal-title"></h2>
+    <div class="modal-fields">
+      <div class="modal-row">
+        <span class="modal-label">≡ Category</span>
+        <span id="modal-category" class="modal-value"></span>
+      </div>
+      <div class="modal-row modal-row-desc">
+        <span class="modal-label">≡ Description</span>
+        <p id="modal-desc" class="modal-value modal-desc-text"></p>
+      </div>
+      <div class="modal-row" id="modal-row-url">
+        <span class="modal-label">🔗 Project Github</span>
+        <a id="modal-url" class="modal-value modal-link" href="#" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="modal-row" id="modal-row-tableau">
+        <span class="modal-label">🔗 Tableau Public</span>
+        <a id="modal-tableau" class="modal-value modal-link" href="#" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">≡ Tools &amp; Concepts</span>
+        <span id="modal-tools" class="modal-value modal-tools-text"></span>
+      </div>
+    </div>
+    <div id="modal-preview-wrap">
+      <img id="modal-preview" src="" alt="Project preview" />
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── Project data ── */
+  /* Each project has: icon, title, category, desc, url, urlHref,
+     tableau, tableauHref, tools, image, fallbackGrad, fallbackEmoji */
+  const projects = [
+    {
+      icon: '📊', fallbackGrad: 'linear-gradient(135deg,#1a2a3a,#2c3e50)', fallbackEmoji: '📉',
+      title: 'The 2023 Tech Layoff Surge: Timing, Industry Impact & Capital Analysis',
+      category: 'Data Visualization',
+      desc: 'I developed an interactive Tableau dashboard analyzing global tech layoffs from 2020–2024 to uncover when workforce reductions peaked, which industries were most impacted, and whether funding levels mitigated layoffs.\n\nUsing time-series analysis, I identified a sharp acceleration in layoffs beginning in late 2022, with January 2023 marking the peak month. Industry segmentation revealed that Retail led total workforce reductions during the contraction year, followed by Consumer and Hardware sectors. A funding-to-layoffs correlation analysis showed only a weak relationship, suggesting that higher capital reserves did not meaningfully shield firms during the downturn.\n\nThe dashboard integrates trend analysis, industry comparison, regression modeling, and cross-sheet interactivity to provide a multi-dimensional view of the 2023 tech contraction.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/The-2023-Tech-Layoff-Surge-Timing-Industry-Impact-Capital-Analysis/tree/main',
+      tableau: 'View on Tableau Public', tableauHref: 'https://public.tableau.com/app/profile/pradhiksha.suresh/viz/LayoffsAnalysis_17715683563240/FundingvsLayoffsIsCapitalProtective?publish=yes',
+      tools: 'Tableau Public · Time-series analysis · Data storytelling · Dashboard design · Correlation analysis · Interactive filtering',
+      image: 'images/project1.png'
+    },
+    {
+      icon: '📊', fallbackGrad: 'linear-gradient(135deg,#1a2e1a,#27ae60)', fallbackEmoji: '🏥',
+      title: 'Medical Device Quality & Risk Analytics Dashboard',
+      category: 'Business Intelligence · Data Analytics · Data Visualization',
+      desc: 'This project is an end-to-end Business Intelligence solution designed to analyze medical device quality performance, operational risk exposure, and maintenance impact. Using MySQL for data modeling and Power BI for visualization, the dashboard tracks defect trends, critical defect rates, repair costs, device-level risk scores, downtime patterns, and maintenance expenses.\n\nThe solution incorporates SQL view optimization, dynamic KPI calculations, quadrant-based risk segmentation, drill-through analysis, and AI-powered Smart Narrative insights. It enables proactive identification of high-risk devices, supports maintenance prioritization, and provides executive-ready reporting for data-driven decision-making.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/quality-data-analytics-dashboard/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'MySQL · SQL Views · Power BI · DAX · Data Modeling · KPI Development · Risk Segmentation · Quadrant Analysis · Drill-Through Reporting · Smart Narrative (AI Insights) · Data Visualization · Healthcare Analytics · Business Intelligence',
+      image: 'images/project2.png'
+    },
+    {
+      icon: '🤖', fallbackGrad: 'linear-gradient(135deg,#0d1f0d,#1e5c1e)', fallbackEmoji: '🤖',
+      title: 'RAG Chatbot: Chat with your documents',
+      category: 'Generative AI',
+      desc: 'This project is a local Retrieval-Augmented Generation (RAG) chatbot that lets users upload documents (PDF, CSV, or DOCX) and ask natural-language questions about their content through an interactive web interface. It parses and chunks documents, stores them in a local vector database, retrieves the most relevant sections for each query, and generates accurate, context-aware responses using a locally hosted large language model.\n\nBuilt with Streamlit, LangChain, ChromaDB, Ollama, and HuggingFace embeddings, the system runs entirely offline with no API costs or data leakage, making it ideal for private document analysis and scalable knowledge retrieval. The project demonstrates practical application of modern GenAI techniques such as vector search and RAG pipelines, commonly used in enterprise search and analytics solutions.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/Local-RAG-Chatbot',
+      tableau: '', tableauHref: '',
+      tools: 'LangChain · ChromaDB · Ollama · HuggingFace Embeddings · Retrieval-Augmented Generation (RAG) · Vector Databases · Streamlit · NLP · Local LLMs',
+      image: 'images/project3.png'
+    },
+    {
+      icon: '👁️', fallbackGrad: 'linear-gradient(135deg,#1a1a2e,#16213e)', fallbackEmoji: '👁️',
+      title: 'Ocular Disease Recognition Using Deep Learning',
+      category: 'Deep Learning · Machine Learning · Image Classification',
+      desc: 'This project develops a deep learning–based multi-class classification system to detect common ocular diseases from retinal fundus images. The model classifies images into glaucoma, cataract, age-related macular degeneration, myopia, and normal categories.\n\nThe objective was to design a reliable computer vision pipeline that could support early diagnosis and demonstrate the application of transfer learning in medical image analysis.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/Ocular-Disease-Recognition/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'Deep Learning · CNN · Transfer Learning · InceptionV3 · VGG16 · ResNet50 · Medical Image Classification · Computer Vision · CLAHE · Data Augmentation · Class Imbalance Handling · Multi-Class Classification · Early Stopping · AUC-ROC · Confusion Matrix · TensorFlow · Keras · OpenCV · NumPy · Pandas · Matplotlib',
+      image: 'images/project4.png'
+    },
+    {
+      icon: '🚚', fallbackGrad: 'linear-gradient(135deg,#2a1a1a,#5c1e1e)', fallbackEmoji: '🚚',
+      title: 'Truck Fleet Risk Analysis & Safety Intelligence Using Big Data Analytics',
+      category: 'Big Data · Data Visualization',
+      desc: 'This project analyzes truck fleet telematics and geographic big data to identify high-risk drivers, vehicles, and locations for a national trucking company. Using Hadoop/HDFS, Hive, and Tableau, risk factors were calculated from mileage, speed, and unsafe driving events, then visualized to highlight critical safety patterns.\n\nThe insights support data-driven decisions such as targeted driver training, geo-fencing, and safer fleet management strategies.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/Truck-Fleet-Risk-Analysis-Safety-Intelligence-Using-Big-Data-Analytics',
+      tableau: '', tableauHref: '',
+      tools: 'Hadoop (HDFS) · Hive · Impala · Tableau · Big Data Analytics · Risk Scoring · Geospatial Analysis · Data Visualization · SQL',
+      image: 'images/project5.png'
+    },
+    {
+      icon: '🛒', fallbackGrad: 'linear-gradient(135deg,#1a1a35,#2d2b7a)', fallbackEmoji: '🛒',
+      title: 'Customer Behavior & Marketing Analytics Using SAS Enterprise Miner',
+      category: 'Business Analytics',
+      desc: 'This project involved an end-to-end business analytics study of a U.S. supermarket chain using SAS Enterprise Miner and the SEMMA methodology. Multiple datasets covering customer demographics, transaction data, branch-level spending, and advertisement click-through rates were analyzed to address declining revenues and improve decision-making.\n\nKey techniques included Market Basket Analysis for product bundling, Customer Segmentation using clustering, Decision Tree modeling to understand customer spending behavior, Linear Regression to identify profit drivers, and extensive Exploratory Data Analysis for pattern discovery. The analysis produced actionable insights for targeted marketing, inventory optimization, advertising budget allocation, and customer retention strategies.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/Customer-Behavior-Marketing-Analytics-Using-SAS-Enterprise-Miner/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'SAS Enterprise Miner · SEMMA Methodology · Market Basket Analysis · Clustering · Decision Trees · Linear Regression · Exploratory Data Analysis · Business Analytics',
+      image: 'images/project6.png'
+    },
+    {
+      icon: '🚲', fallbackGrad: 'linear-gradient(135deg,#002244,#005c99)', fallbackEmoji: '🚲',
+      title: 'Bay Area Bike Share Database Design, Normalization, and Performance Optimization',
+      category: 'Database Management',
+      desc: 'This project involved designing, implementing, and optimizing a relational database system using the Bay Area Bike Share dataset to support efficient storage, integrity, and querying of large operational data. An Entity–Relationship (ER) model was developed covering Stations, Trips, Weather, and Status data, followed by rigorous schema design with primary keys, foreign keys, and domain constraints.\n\nThe schema was analyzed using functional dependencies and systematically normalized to Boyce–Codd Normal Form (BCNF), resulting in a well-structured database of nine related tables. The second phase focused on performance optimization — indexed and non-indexed versions were compared across multiple JOIN queries, demonstrating that primary key and secondary indexes significantly reduced query execution time.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/Bay-Area-Bike-Share-Database-Design-Normalization-and-Performance-Optimization/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'MySQL · SQL · Relational Database Design · ER Modeling · Normalization (BCNF) · Indexing · Query Optimization · Performance Analysis',
+      image: 'images/project7.png'
+    },
+    {
+      icon: '🌍', fallbackGrad: 'linear-gradient(135deg,#2a1f00,#c97c00)', fallbackEmoji: '🌍',
+      title: 'International Market Entry Strategy for a U.S. Lease-to-Own Retailer: Case Study',
+      category: 'International Business Strategy',
+      desc: 'In this project, I conducted an international business case study to evaluate whether a U.S.-based lease-to-own company should expand operations into the Mexican market. I analyzed the strategic, economic, cultural, legal, and operational factors influencing international expansion using frameworks such as PESTEL analysis, market and competitor analysis, and risk assessment.\n\nBased on this analysis, I developed a phased market entry strategy beginning with a pilot launch in Mexico City, supported by local partnerships, culturally adapted payment models, targeted marketing, and performance tracking through key metrics. The project concluded with a strategic recommendation to pursue expansion while managing risk through gradual scaling and continuous evaluation.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/International-Market-Entry-Strategy-for-a-U.S.-Lease-to-Own-Retailer/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'PESTEL Analysis · Market Entry Strategy · Competitive Analysis · Risk Assessment · Global Strategy · International Business Management',
+      image: 'images/project8.png'
+    },
+    {
+      icon: '🧑‍💼', fallbackGrad: 'linear-gradient(135deg,#3a0a0a,#e05555)', fallbackEmoji: '🧑‍💼',
+      title: 'AI-Enabled Employee Onboarding System Proposal for HR Process Automation',
+      category: 'Systems Analysis & Design',
+      desc: 'This project proposes the design of an AI-enabled employee onboarding system aimed at streamlining and automating the end-to-end onboarding process within an organization. The project analyzes existing onboarding practices using Microsoft Copilot to identify key phases — pre-boarding, orientation, training and development, integration, and ongoing support — and highlights resource-intensive challenges.\n\nThe proposed system introduces integrated Admin (HR/Recruiter) and Employee portals to automate document management, IT access provisioning, training assignment, mentorship matching, feedback collection, and performance tracking. It also incorporates a RAG chatbot to provide real-time assistance with company policies, training guidance, IT support, and onboarding queries. Using BPMN process models, context diagrams, and detailed use-case specifications, the project demonstrates how GenAI and workflow automation can reduce HR workload and enhance the new employee experience.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/AI-Enabled-Employee-Onboarding-System-Proposal-for-HR-Process-Automation/tree/main',
+      tableau: '', tableauHref: '',
+      tools: 'Systems Analysis & Design · BPMN · Business Process Automation · GenAI Applications · RAG Chatbots · HRIS · Workflow Modeling · Process Optimization',
+      image: 'images/project9.png'
+    }
+  ];
+
+  /* ── Build gallery from projects array ── */
+  function buildGallery() {
+    const grid = document.getElementById('gallery-grid');
+    projects.forEach((p, idx) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.onclick = () => openModal(idx);
+
+      // Thumb — real image, falls back to gradient+emoji
+      const thumb = document.createElement('div');
+      thumb.className = 'gallery-thumb';
+      thumb.style.background = p.fallbackGrad;
+      thumb.style.position = 'relative';
+      thumb.style.overflow = 'hidden';
+
+      const fallback = document.createElement('div');
+      fallback.className = 'gallery-thumb-inner';
+      fallback.textContent = p.fallbackEmoji;
+      thumb.appendChild(fallback);
+
+      if (p.image) {
+        const img = document.createElement('img');
+        img.src = p.image;
+        img.alt = p.title;
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;opacity:0;transition:opacity 0.2s;';
+        img.onload  = () => { img.style.opacity = '1'; fallback.style.display = 'none'; };
+        img.onerror = () => { img.remove(); };
+        thumb.appendChild(img);
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'gallery-meta';
+      meta.innerHTML = `<span class="gallery-icon">${p.icon}</span><span class="gallery-title">${p.title}</span>`;
+
+      card.appendChild(thumb);
+      card.appendChild(meta);
+      grid.appendChild(card);
+    });
+  }
+  buildGallery();
+
+  /* ── Modal logic ── */
+  function openModal(idx) {
+    const p = projects[idx];
+    document.getElementById('modal-icon').textContent = p.icon;
+    document.getElementById('modal-title').textContent = p.title;
+    document.getElementById('modal-category').textContent = p.category;
+    document.getElementById('modal-desc').innerHTML = p.desc
+      .split('\n\n').map(para => `<p style="margin-bottom:10px">${para}</p>`).join('');
+
+    const rowUrl = document.getElementById('modal-row-url');
+    const urlEl  = document.getElementById('modal-url');
+    if (p.urlHref) {
+      urlEl.textContent = p.url;
+      urlEl.href = p.urlHref;
+      rowUrl.style.display = '';
+    } else { rowUrl.style.display = 'none'; }
+
+    const rowTab = document.getElementById('modal-row-tableau');
+    const tabEl  = document.getElementById('modal-tableau');
+    if (p.tableauHref) {
+      tabEl.textContent = p.tableau;
+      tabEl.href = p.tableauHref;
+      rowTab.style.display = '';
+    } else { rowTab.style.display = 'none'; }
+
+    document.getElementById('modal-tools').textContent = p.tools;
+
+    const img = document.getElementById('modal-preview');
+    const wrap = document.getElementById('modal-preview-wrap');
+    if (p.image) {
+      img.src = p.image;
+      img.onerror = () => { wrap.style.display = 'none'; };
+      img.onload  = () => { wrap.style.display = ''; };
+      wrap.style.display = '';
+    } else { wrap.style.display = 'none'; }
+
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== document.getElementById('modal-overlay')) return;
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(null); });
+
+  /* ── Scroll nav dots ── */
+  const sections = ['about', 'tools', 'experience', 'projects'];
+  const dots = document.querySelectorAll('.scroll-dot');
+
+  function scrollTo(id) {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        dots.forEach(d => d.classList.remove('active'));
+        if (idx >= 0) dots[idx]?.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
