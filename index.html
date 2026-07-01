@@ -959,6 +959,16 @@
       tableau: '', tableauHref: '',
       tools: 'Systems Analysis & Design · BPMN · Business Process Automation · GenAI Applications · RAG Chatbots · HRIS · Workflow Modeling · Process Optimization',
       image: 'images/project9.png'
+    },
+    {
+      icon: '💳', fallbackGrad: 'linear-gradient(135deg,#1a0a2e,#7a1e5c)', fallbackEmoji: '🔍',
+      title: 'Real-Time Fraud Detection System',
+      category: 'Machine Learning · Data Science',
+      desc: 'Payment fraud costs the global economy over $32 billion annually, with card-not-present fraud alone accounting for 73% of all losses. Detecting fraud in real-time requires distinguishing 3,500 fraudulent transactions hidden among every 100,000 legitimate ones — a needle-in-a-haystack problem where both false positives (blocking good customers) and false negatives (missing fraud) carry significant business cost.\n\nThis system trains an XGBoost classifier on 590,540 real-world transactions from Vesta Corporation (IEEE-CIS dataset), engineering time, amount, card-behaviour, and email-risk features to surface fraud patterns invisible in raw data. A Streamlit dashboard enables real-time single-transaction scoring and batch CSV processing, with a threshold optimised for maximum F1 rather than defaulting to 0.5.\n\nResults: AUPRC 0.5285 · AUROC 0.9111 · Recall 45.2% · Precision 57.5% · F1 Score 50.6% · Optimal Threshold 0.80 · False alarms per 100 legit transactions 1.2 · Fraud caught (test set) 1,836 of 4,064.\n\nThreshold tuned from 0.5 → 0.80 via F1 grid search, raising precision from 26% → 57.5% and cutting false alarms from 7.1 → 1.2 per 100 legitimate transactions.',
+      url: 'View on GitHub', urlHref: 'https://github.com/Pradhiksha-Suresh/ieee-fraud-detection',
+      tableau: '', tableauHref: '',
+      tools: 'IEEE-CIS Dataset · XGBoost · Python · Streamlit · Feature Engineering · Threshold Optimization · Imbalanced Classification · AUPRC · AUROC · Grid Search · Batch Scoring',
+      image: 'images/project10.png'
     }
   ];
 
